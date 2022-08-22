@@ -39,7 +39,8 @@ export const Login = () => {
               autoComplete="current-password"
               placeholder="password"
             />
-            </div>
+          </div>
+          <Button color="success" variant="contained">ログイン</Button>
         </Box>
       </Grid>   
     </Grid>

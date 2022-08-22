@@ -15,15 +15,25 @@ import { NotFound } from './components/error';
 import { Home } from './pages/home';
 import { Login } from './pages/auth';
 
+import { makeStyles } from "@material-ui/core";
+
 
 const App = () => {
-  const title: string = "Laravel 9 Vite with TypeScript React !!";
+
+  const useStyle = makeStyles(() => ({
+    margin_top: {
+      marginTop: 80,
+    },
+  }));
+
+  const classes = useStyle();
+
   return (<>
     <CssBaseline />
     <Container maxWidth="sm">
       <BrowserRouter>
           <Header />
-          <main className="">
+          <main className={classes.margin_top}>
             <Routes >
               <Route path='/' element={<Home/>} />
               <Route path='/login' element={<Login />} />
