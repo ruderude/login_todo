@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers\Api\tasks;
 
+use App\Http\Controllers\Controller;
 use App\Models\Models\tasks\Task;
 use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
-    public function test():Response
+    public function test()
     {
         $data = [
             "status" => "test"
         ];
-        return $data;
+        return response()->json($data, 200);
     }
     /**
      * Display a listing of the resource.

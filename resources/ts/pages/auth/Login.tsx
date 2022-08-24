@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import {
   Box,
   Flex,
@@ -17,6 +18,15 @@ export const Login = () => {
 
   const postForm = () => {
     console.log('post!');
+    axios.get('/api/test')
+      .then(response => {
+        console.log('success!');
+        console.log(response)
+      })
+      .catch(error => {
+        console.log('error!');
+        console.log(error)
+      })
   }
 
 
