@@ -2,40 +2,35 @@ import React from "react";
 import {
   Link
 } from "react-router-dom";
-
-import { AppBar, Toolbar, makeStyles, Typography, Button } from "@material-ui/core";
+import { Heading, Box, Flex, Spacer, ButtonGroup, Button } from '@chakra-ui/react'
 
 export const Header = () => {
 
-  const useStyle = makeStyles(() => ({
-    headerTitle: {
-      color: "white",
-    },
-    header: {
-      display: "flex",
-    },
-  }));
-
-  const classes = useStyle();
-
   return (<>
-    <div className={classes.header}>
-      <AppBar>
-        <Toolbar>
-          <Typography className={classes.headerTitle}>Fortnite Tracker</Typography>
-          <div style={{ flexGrow: 1 }}></div>
-          <div>
-            <Link to="/" className="">
-              <Button className={classes.headerTitle}>Home</Button>
-            </Link>
-            <Link to="/login" className="">
-              <Button className={classes.headerTitle}>Login</Button>
-            </Link>
-            
-          </div>
-          
-        </Toolbar>
-      </AppBar>
-    </div>
+    <Box bg='tomato' w='100%' p={2} color='white'>
+      <Flex justify='center' align='center'>
+        <Box>
+          <Link to="/" className="">
+            <Heading as='h1' size='md'>Home</Heading>
+          </Link>
+        </Box>
+        <Spacer />
+        <Box>
+          <ButtonGroup gap='2'>
+            <Button colorScheme='red'>
+              <Link to="/signup" className="">
+                Sign Up
+              </Link>
+            </Button>
+            <Button colorScheme='red'>
+              <Link to="/login" className="">
+                Login
+              </Link>
+            </Button>
+          </ButtonGroup>
+        </Box>
+      </Flex>
+    </Box>
+    
   </>);
 };

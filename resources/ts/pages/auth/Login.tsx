@@ -1,48 +1,45 @@
 import React from "react";
-
-import { Button, Grid, Box } from '@mui/material';
-import TextField from '@mui/material/TextField';
+import {
+  Box,
+  Flex,
+  Heading,
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  Input,
+  Center ,
+  Spacer,
+  Button
+} from '@chakra-ui/react'
 
 export const Login = () => {
+
+  const postForm = () => {
+    console.log('post!');
+  }
+
+
   return (<>
-    <Grid container>
-      <Grid item xs={12}>
-        <h2>Login</h2>
-        <Box
-          component="form"
-          sx={{
-            '& .MuiTextField-root': { m: 1, width: '100%' },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <div>
-            <TextField
-              required
-              id="name"
-              label="name"
-              defaultValue=""
-              placeholder="太郎"
-            />
-            <TextField
-              required
-              id="email"
-              label="email"
-              defaultValue=""
-              placeholder="taro@test.com"
-            />
-            <TextField
-              required
-              id="password"
-              label="password"
-              type="password"
-              autoComplete="current-password"
-              placeholder="password"
-            />
-          </div>
-          <Button color="success" variant="contained">ログイン</Button>
-        </Box>
-      </Grid>   
-    </Grid>
+    <Center >
+      <Box width="70%">
+        <Heading as='h2' size='md'>ログイン</Heading>
+        <FormControl>
+          <FormLabel>ID</FormLabel>
+          <Input type='text' />
+        </FormControl>
+        <FormControl>
+          <FormLabel>Email</FormLabel>
+          <Input type='email' />
+        </FormControl>
+        <FormControl>
+          <FormLabel>PassWord</FormLabel>
+          <Input type='password' />
+        </FormControl>
+        <Flex justify='end' align='center' mt={4}>
+          <Button colorScheme="blue" onClick={postForm}>送信</Button>
+        </Flex>
+      </Box>
+    </Center>
   </>);
 };

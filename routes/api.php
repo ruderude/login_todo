@@ -2,7 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Api\MeController;
+use App\Http\Controllers\Api\auth\MeController;
+use App\Http\Controllers\Api\tasks\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,4 +22,8 @@ use App\Http\Controllers\Api\MeController;
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::get('/me', MeController::class);
+});
+
+Route::controller(TaskController::class)->group(function () { 
+    Route::get('/test', 'test')->name('test'); 
 });
