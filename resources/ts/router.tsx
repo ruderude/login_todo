@@ -7,7 +7,7 @@ import {
 
 import { Header } from './components/layouts';
 import { Home } from './pages/home';
-import { Login, SignUp } from './pages/auth';
+import { Login, SignUp, Admin, Me } from './pages/auth';
 import { NotFound } from './components/error';
 
 
@@ -25,6 +25,12 @@ export const Router = () => {
             </Route>
             <Route path="/signup">
               <SignUp />
+            </Route>
+            <Route path="/me">
+              <Me />
+            </Route>
+            <Route path="/admin">
+              <Admin />
             </Route>
             <Route path="/*">
               <NotFound />

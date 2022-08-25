@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import {
   Box,
@@ -16,17 +16,31 @@ import {
 
 export const Login = () => {
 
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
   const postForm = () => {
     console.log('post!');
-    axios.get('/api/test')
-      .then(response => {
-        console.log('success!');
-        console.log(response)
-      })
-      .catch(error => {
-        console.log('error!');
-        console.log(error)
-      })
+    const data = {
+      email: email,
+      password: password
+    }
+
+    console.log(data);
+
+    axios.get('/sanctum/csrf-cookie').then(response => {
+      console.log(response);
+      axios.post('/login', data)
+        .then(response => {
+          console.log('success!');
+          console.log(response)
+        })
+        .catch(error => {
+          console.log('error!');
+          console.log(error)
+        })
+    });
+    
   }
 
 
@@ -34,17 +48,22 @@ export const Login = () => {
     <Center >
       <Box width="70%">
         <Heading as='h2' size='md'>ログイン</Heading>
-        <FormControl>
-          <FormLabel>ID</FormLabel>
-          <Input type='text' />
-        </FormControl>
+
         <FormControl>
           <FormLabel>Email</FormLabel>
-          <Input type='email' />
+          <Input
+            type='email'
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </FormControl>
         <FormControl>
           <FormLabel>PassWord</FormLabel>
-          <Input type='password' />
+          <Input
+            type='password'
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </FormControl>
         <Flex justify='end' align='center' mt={4}>
           <Button colorScheme="blue" onClick={postForm}>送信</Button>
