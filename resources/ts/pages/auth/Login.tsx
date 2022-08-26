@@ -3,6 +3,7 @@ import axios from "axios";
 import {
   Box,
   Flex,
+  Text,
   Heading,
   FormControl,
   FormLabel,
@@ -49,6 +50,10 @@ export const Login = () => {
       <Box width="70%">
         <Heading as='h2' size='md'>ログイン</Heading>
 
+        <Text color="red">
+          email:test@test.com <br />
+          pass:password
+        </Text>
         <FormControl>
           <FormLabel>Email</FormLabel>
           <Input
