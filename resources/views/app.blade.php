@@ -8,6 +8,11 @@
         @vite('resources/ts/app.tsx')
     </head>
     <body>
+        <!-- Google Tag Manager (noscript) -->
+        <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TRTW8DX"
+        height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+        <!-- End Google Tag Manager (noscript) -->
+        
         <div id="app"></div>
     </body>
 </html>
